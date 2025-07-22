@@ -11,7 +11,7 @@ app.post('/generate-headers', (req, res) => {
   const contentType = 'application/json';
   const contentMD5 = crypto.MD5('').toString();
   const date = new Date().toUTCString();
-  const path = `/v2/origin/custom/${scope_id}/chats/${chat_id}/history`;
+  const path = `/origin/custom/${scope_id}/chats/${chat_id}/history`;
 
   const signString = `${method}\n${contentMD5}\n${contentType}\n${date}\n${path}`;
   const signature = crypto.HmacSHA1(signString, channel_secret).toString();
